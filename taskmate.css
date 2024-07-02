@@ -3,10 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&display=swap');
 
-@media screen and (max-width: 360px)
-{
-
-}
 
 :root {
     --color1: #1D2228;
@@ -104,7 +100,7 @@ nav #gridicon:active{
     width: 16vw;
     margin: 1vmin;
     font-weight: 500;
-    font-size: 1vmax;
+    font-size: 16px;
     color: white;
 }
 
@@ -149,6 +145,7 @@ nav #gridicon:active{
     align-items: center;
     padding-left: 20px;
     height: 10vh;
+    transition: all 0.4s ease;
 
 }
 
@@ -160,10 +157,12 @@ nav #gridicon:active{
     border-bottom: 1px solid var(--color1);
     border-right: 1px solid var(--color2);;
     cursor: pointer;
+    transition: all 0.4s ease;
 }
 
 #alltaskbtn{
     border-top: 1px solid var(--color1);
+    
 }
 
 #alltaskbtn.colored {
@@ -266,6 +265,7 @@ ul {
     left: 0vw;
     top: 20vh;
     transition: all 0.4s ease;
+    /* padding: 0 100px; */
     
 }
 .right.activated ul{
@@ -279,7 +279,7 @@ ul li {
     
     margin: 4px auto;
     min-height: 40px;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--color1);
 }
@@ -288,7 +288,7 @@ ul li {
 li div {
     background-color: var(--color2);
     width: 80%;
-    /* border-radius: 20px 0 0 20px; */
+    
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -322,7 +322,7 @@ li div {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .crossicon:hover {
@@ -372,7 +372,7 @@ li input {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px 0 0 20px;
+    border-radius: 10px 0 0 10px;
 }
 
 .checkicon:hover {
@@ -457,3 +457,78 @@ ul img {
     background: var(--color4);
 }
 
+@media screen and (max-width : 360px){
+    .left.activated{
+        width: 100vw;
+        z-index: 1000;
+    }
+
+    .right{
+        width: 100vw;
+        left: 0;
+        transition: none;
+    }
+
+    .right.activated{
+        width: 100vw;
+        left: 0;
+    }
+    .right.activated ul{
+        width: 100vw;
+    }
+    .right.activated #all-task.open {
+        left: 0;
+    }
+    .right.activated #pending-task.open {
+        left: 0;
+    }
+    .right.activated #completed-task.open {
+        left: 0;
+    }
+    .right.activated .inputbar{
+        width: 100vw;
+    }
+
+
+    .logo{
+        width: 30px;
+        
+    }
+    .heading{
+        font-size: 30px;
+    }
+    .head{
+        padding-left: 10px;
+    }
+
+    #deleteAll,#checkAll{
+        width: 60px;
+        height: 30px;
+        font-size: 9px;
+        border-radius: 0;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    li{
+        border-radius: 0;
+    }
+
+    .crossicon{
+        border-radius: 0;
+    }
+    .checkicon{
+        border-radius: 0;
+    }
+    .checkicon img,.crossicon img,.editicon img{
+        width: 16px;
+    }
+
+    /* .inputbar #inputbox,.inputbar #btn{
+        font-size: 12px;
+    } */
+
+
+}
