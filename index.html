@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <div>
+                <img class="logo" src="taskmatelogo.svg" alt="">
+                <div class="heading">TASKMATE</div>
+            </div>
+            <ul>
+                <li><button id="nav-home" class="nav-button" onclick="showPage('home')">Home</button></li>
+                <li><button id="nav-about" class="nav-button" onclick="showPage('about')">About</button></li>
+                <!-- <li><button id="nav-features" class="nav-button" onclick="showPage('features')">Features</button></li> -->
+                <li><button id="nav-feedback" class="nav-button" onclick="showPage('feedback')">Feedback</button></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div id="home" class="page">
+                <div class="left">
+                    <img src="donecheckingimmg.svg" alt="" id="illustration">
+                </div>
+
+                <div class="right">
+                    <div class="content">
+                        <div class="firstline">Turn Chaos into Order with Your TaskMate</div>
+                        <div class="secondline">Take Control of Your Day: Simplify Task Management and Boost Your
+                            Productivity Effortlessly</div>
+                        <button><a href="taskmate.html">Get Started</a></button>
+                    </div>
+                </div>
+            </div>
+            <div id="about" class="page hidden other">
+                <article>
+                    <h1>About TaskMate</h1>
+                    <p>Welcome to TaskMate, your ultimate companion for seamless task management and productivity!
+                        Designed
+                        to simplify your daily routines and help you achieve more, TaskMate is your go-to solution for
+                        staying organized, focused, and in control of your time.</p>
+
+                    <h1>Our Mission</h1>
+                    <p>At TaskMate, we believe that managing tasks shouldn't be a chore. Our mission is to empower you
+                        with
+                        a tool that makes task management intuitive, efficient, and even enjoyable. We aim to help you
+                        streamline your responsibilities, reduce stress, and maximize your productivity.
+                    </p>
+                    <h1>Key Features</h1>
+                    <ul>
+                        <li>
+                            <p><b>User-Friendly Interface:</b> Navigate through your tasks effortlessly with a clean,
+                                design that adapts to your workflow.</p>
+                        </li>
+                        <li>
+                            <p><b>Pending and Completed Tasks Division:</b> Easily differentiate between what needs to
+                                be done and what’s already accomplished with clear separation of pending and completed
+                                tasks.</p>
+                        </li>
+                        <li>
+                            <p><b>Check/Uncheck Tasks:</b> Mark tasks as complete with a simple click or uncheck them if
+                                you need to revisit or update them.</p>
+                        </li>
+                        <li>
+                            <p><b>Edit Tasks:</b> Quickly edit your tasks to update details or make changes, ensuring
+                                your to-do list is always accurate.</p>
+                        </li>
+                        <li>
+                            <p><b>Delete Tasks:</b> Remove tasks that are no longer needed, keeping your list
+                                clutter-free and manageable.</p>
+                        </li>
+                        <li>
+                            <p><b>Delete All Tasks:</b> Start fresh with the option to delete all tasks at once, perfect
+                                for when you’re ready to reset and reorganize.</p>
+                        </li>
+                        <li>
+                            <p><b>Check All Tasks:</b> Complete your list in one go by checking all tasks, ideal for
+                                repetitive or batch tasks.</p>
+                        </li>
+                    </ul>
+
+                    <h1>Why TaskMate?</h1>
+                    <p>TaskMate is more than just a task management tool—it's a commitment to helping you live a more
+                        organized and balanced life. Our features are designed to offer you flexibility and control,
+                        allowing you to focus on what matters most. Whether you're managing work projects, personal
+                        errands,
+                        or long-term goals, TaskMate is here to support you every step of the way.</p>
+
+                    <h1>Discover TaskMate Today</h1>
+                    <p>Simplify your daily tasks with TaskMate. Experience efficient task management with our intuitive
+                        features designed to keep you organized and productive. Whether you're tackling personal
+                        projects or professional responsibilities, TaskMate provides the tools you need to stay on top
+                        of your to-do list effortlessly. Start managing your tasks smarter with TaskMate today!</p>
+
+                </article>
+            </div>
+            
+            <div id="feedback" class="page hidden other">
+                <article>
+                    <h1>Feedback Form</h1>
+                    <form id="feedback-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Feedback:</label>
+                        <textarea rows="5" cols="100" id="message" name="message" required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="status"></div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</body>
+
+</html>

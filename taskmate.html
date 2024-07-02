@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="taskmate.css">
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="menu.svg" alt="">
+            <div class="heading">TASKMATE</div>
+        
+        <div class="allButtons">
+            <button onclick="toggleAllTasks()" id="checkAll">Check All</button>
+            <button onclick="deleteAllTasks()" id="deleteAll">Delete All</button>
+        </div>
+    </nav>
+
+    <div class="outer">
+
+        <div class="left activated" >
+            <div class="head">
+                <img class="logo" src="menu.svg" alt="">
+                <div class="heading">TASKMATE</div>
+            </div>
+            <div id="alltaskbtn" class="left-list colored">All task</div>
+            <div id="pendingbtn" class="left-list ">Pending</div>
+            <div id="completedbtn" class="left-list ">Completed</div>
+
+            
+        </div>
+        <!-- <div class="partition"></div> -->
+        <div class="right activated">
+            <div class="inputbar">
+                <input list="nolist" autocomplete="off" onchange="addTask()" id="inputBox"
+                    placeholder="Enter your task here" type="text">
+                <datalist id="nolist"></datalist>
+                <button onclick="addTask()" id="btn">Add</button>
+            </div>
+
+            <ul id="all-task" class="open"></ul>
+            <ul id="pending-task"></ul>
+            <ul id="completed-task"></ul>
+        </div>
+    </div>
+    <script src="taskmate.js"></script>
+</body>
+
+</html>
+
