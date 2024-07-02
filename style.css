@@ -27,6 +27,7 @@ nav{
 
 nav div{
     display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -87,7 +88,7 @@ nav ul{
 
 
 .page {
-    display: none;
+    
     height: 100vh;
     display: flex;
     align-items: center;
@@ -273,16 +274,13 @@ form button {
     cursor: pointer;
     transition: background-color 0.3s;
     
+    
 }
 
 form button:hover {
     background-color: #0056b3;
 }
 
-#status {
-    text-align: center;
-    margin-top: 20px;
-}
 
 textarea{
     resize: none;
@@ -317,3 +315,125 @@ label{
     background: var(--rightbgCol);
 }
 
+#feedback article{
+    position: fixed;
+    background-color: var(--rightbgCol);
+    height: 80vh;
+    width: 50vw;
+    top: 20vh;
+    color: white;
+    padding: 0px 50px;
+    overflow: scroll;
+}
+
+
+@media screen and (max-width: 400px){
+    
+    nav{
+        background-color: var(--rightbgCol);
+        top: 0;
+        
+    }
+    
+    
+    .logo{
+        width: 40px;
+    }
+    .heading{
+        font-size: 20px;
+    }
+    .page{
+        display: block;
+    } 
+    nav ul{
+        right: 10px;
+    }
+    nav ul li{
+        margin: 4px;
+    }
+    .nav-button{
+        padding: 2px 4px;
+        font-size: 14px;
+    }
+
+    .page.visible{
+        display: block;
+    }
+
+    .page.other{
+        display: block;
+    }
+
+    .content{
+        width: 90vw;
+    }
+
+    .firstline{
+        font-size: 30px;
+    }
+    .secondline{
+        font-size: 14px;
+    }
+
+    .left{
+        width: 100vw;
+        height: 50vh;
+        display: block;
+    }
+
+    #illustration{
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        bottom: 52vh;
+        
+        
+    }
+
+    .right{
+        height: 50vh;
+        width: 100vw;
+        
+    }
+    .page.other{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .page.other article{
+        position: fixed;
+        background-color: var(--leftbgCol);
+        height: 83vh;
+        width: 88vw;
+        top: 10vh;
+        color: rgb(0, 0, 0);
+        padding: 20px;
+        overflow: scroll;
+    }
+    article h1{
+        font-size: 28px;
+    }
+    article p{
+        font-size: 16px;
+    }
+    #feedback article{
+        position: fixed;
+        background-color: var(--leftbgCol);
+        height: 86vh;
+        width: 90vw;
+        top: 10vh;
+        color: rgb(0, 0, 0);
+        padding: 10px;
+        overflow: scroll;
+    }
+    label{
+        font-size: 16px;
+    }
+    form input, form textarea, form button {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+}
