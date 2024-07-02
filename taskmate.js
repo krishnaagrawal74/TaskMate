@@ -21,42 +21,40 @@ menuBtns.forEach(menuBtn =>{
 })
 
 alltasklist.addEventListener('click', (e) => {
-    const editButton = e.target.closest('span'); // Find the closest 'span' which is clicked
+    const editButton = e.target.closest('span');
 
     if (editButton && (editButton.id === "edit" || editButton.parentElement.id === "edit")) {
-        const taskDiv = editButton.previousElementSibling; // Task content
+        const taskDiv = editButton.previousElementSibling;
+        const taskId = taskDiv.parentElement.getAttribute('data-id');
+        
+        // Check if the task is checked
+        const taskIsChecked = taskDiv.classList.contains('checked');
+        if (taskIsChecked) {
+            return; // Prevent editing if task is checked
+        }
 
         if (taskDiv.getAttribute('data-editing') === 'true') {
-            // Save changes and exit edit mode
             const editInputBox = taskDiv.querySelector('input');
-            const newvalue = editInputBox.value.trim(); // Trim whitespace
+            const newValue = editInputBox.value.trim();
 
-            if (newvalue !== '') {
-                taskDiv.innerHTML = newvalue;
-            } else {
-                taskDiv.innerHTML = 'Untitled Task'; // Default value if empty
-            }
+            // Update the task content in all lists
+            updateTaskContent(taskId, newValue);
 
-            taskDiv.style.backgroundColor = 'var(--color2)'; // Reset background
-            taskDiv.removeAttribute('data-editing'); // Remove editing state
-            saveData(); // Save to localStorage
+            taskDiv.style.backgroundColor = 'var(--color2)';
+            taskDiv.removeAttribute('data-editing');
+            saveData();
         } else {
-            // Enter edit mode
             const itemContent = taskDiv.innerText;
-
-            // Create an input box for editing
             const editInputBox = document.createElement('input');
             editInputBox.value = itemContent;
-            editInputBox.style.width = '100%'; // Set width to fit content
+            editInputBox.style.width = '100%';
 
-            taskDiv.innerHTML = ''; // Clear content
-            taskDiv.appendChild(editInputBox); // Add input box
-            editInputBox.focus(); // Focus input box
+            taskDiv.innerHTML = '';
+            taskDiv.appendChild(editInputBox);
+            editInputBox.focus();
+            taskDiv.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+            taskDiv.setAttribute('data-editing', 'true');
 
-            taskDiv.style.backgroundColor = "rgba(255, 255, 255, 0.7)"; // Highlight
-            taskDiv.setAttribute('data-editing', 'true'); // Mark as editing
-
-            // Function to save changes
             const saveChanges = () => {
                 const newValue = editInputBox.value.trim();
                 if (newValue !== '') {
@@ -64,17 +62,12 @@ alltasklist.addEventListener('click', (e) => {
                 } else {
                     taskDiv.innerHTML = 'Untitled Task';
                 }
-
-                taskDiv.style.backgroundColor = 'var(--color2)'; // Reset background
-                taskDiv.removeAttribute('data-editing'); // Remove editing state
-                saveData(); // Save to localStorage
+                updateTaskContent(taskId, newValue);
+                taskDiv.style.backgroundColor = 'var(--color2)';
+                taskDiv.removeAttribute('data-editing');
+                saveData();
             };
 
-            // Remove existing event listeners to avoid multiple bindings
-            editInputBox.removeEventListener('blur', saveChanges);
-            editInputBox.removeEventListener('keypress', saveChanges);
-
-            // Save on blur or Enter key press
             editInputBox.addEventListener('blur', saveChanges);
             editInputBox.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
@@ -84,6 +77,15 @@ alltasklist.addEventListener('click', (e) => {
         }
     }
 });
+function updateTaskContent(taskId, newValue) {
+    const taskItems = [alltasklist, pendinglist, completedlist];
+    taskItems.forEach(list => {
+        const taskItem = list.querySelector(`[data-id='${taskId}'] div`);
+        if (taskItem) {
+            taskItem.innerHTML = newValue;
+        }
+    });
+}
 
 function deleteAllTasks() {
     alltasklist.innerHTML = ''
