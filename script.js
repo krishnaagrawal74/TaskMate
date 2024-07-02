@@ -1,5 +1,8 @@
 const illustration = document.getElementById('illustration')
 setInterval(changeColor, 600)
+
+var x = window.matchMedia("(min-width: 400px)")
+
 function changeColor() {
     let r = (Math.random())
 
@@ -32,14 +35,16 @@ function showPage(pageId) {
             content.classList.add('yesvisible');
         }
 
-        if (pageId != 'home') {
+        if (pageId != 'home' ) {
 
             nav.style.backgroundColor = `var(--rightbgCol)`
             nav.firstElementChild.style.filter = 'invert(1)'
         }
-        else {
-            nav.style.backgroundColor = ''
+        else if (pageId == 'home') {
+            if(x.matches){
+                nav.style.backgroundColor = ''
             nav.firstElementChild.style.filter = 'invert(0)'
+            }
 
 
         }
@@ -97,3 +102,5 @@ document.getElementById('feedback-form').addEventListener('submit', function(eve
 //         },
 //       );
 // }
+
+
