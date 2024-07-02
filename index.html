@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskMate</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("C2sTXzTnuVlx10SK7");
+        })();
+    </script>
 </head>
 
 <body>
@@ -99,29 +105,31 @@
 
                 </article>
             </div>
-            
+
             <div id="feedback" class="page hidden other">
                 <article>
                     <h1>Feedback Form</h1>
                     <form id="feedback-form">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="from_name" placeholder="Name" required>
 
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email_id" placeholder="Email" required>
 
                         <label for="message">Feedback:</label>
-                        <textarea rows="5" cols="100" id="message" name="message" required></textarea>
+                        <textarea rows="5" cols="100" id="message" name="message" placeholder="Feedback"
+                            required></textarea>
 
-                        <button type="submit">Submit</button>
+                        <button onclick="SendMail()" type="submit">Submit</button>
                     </form>
-                    <div id="status"></div>
+                    
                 </article>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
 </body>
 
 </html>
