@@ -63,9 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showPage('home');
 });
 
-(function() {
-    emailjs.init("C2sTXzTnuVlx10SK7");
-})();
+//form
+
 
 document.getElementById('feedback-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -75,8 +74,26 @@ document.getElementById('feedback-form').addEventListener('submit', function(eve
 
     emailjs.sendForm(serviceID, templateID, this)
         .then(() => {
-            document.getElementById('status').innerHTML = 'Feedback sent successfully!';
+            alert("Feedback sent successfully!")
         }, (err) => {
-            document.getElementById('status').innerHTML = 'Failed to send feedback. Error: ' + JSON.stringify(err);
+            alert(  'Failed to send feedback. Error: ' + JSON.stringify(err))
         });
 });
+
+// function SendMail(){
+//     var params ={
+//         from_name : document.getElementById("name").value,
+//         email_id : document.getElementById("email").value,
+//         message : document.getElementById("message").value
+//     }
+    
+
+//     emailjs.send(service_usfhbf5,template_lsns8of , params).then(
+//         (response) => {
+//           console.log('SUCCESS!', response.status, response.text);
+//         },
+//         (error) => {
+//           console.log('FAILED...', error);
+//         },
+//       );
+// }
